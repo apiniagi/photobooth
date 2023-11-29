@@ -32,7 +32,8 @@ You will need to add the --api commandline argument. If you will be running a se
 
 It is recommended to run the browser-based UI at least once to choose an initial model (install more if desired) and make sure everything is working. The model 'v1-5-pruned-emaonly.safetensor' produced good results for me. I installed also extension controlnet. It can be found in UI -> Extensions -> install from URL -> sd-webui-controlnet. I added an IP adapter to it to better recognize and change the face in the photo. Files from IP-Adapter https://huggingface.co/h94/IP-Adapter/tree/main should be saved in stable-diffusion-webui\models\ControlNet. I used for preproccesor ip-adapter_clip_sd15 and for model ip-adapter_face_sd15.
 
-![Alt text](image.png)
+![image](https://github.com/apiniagi/photobooth/assets/117590950/ca7a914f-bc62-40bd-af92-54fec89e3822)
+
 
 # Virtual Painting Photobooth frontend setup
 ## Installation
