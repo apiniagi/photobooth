@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artwork Preview</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            
+            background-image: url('{{ url_for('static', filename='royal-wallpaper.png') }}');
+            background-repeat: repeat;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Your Artwork</h2>
+    <img id="transformed-image" src="data:image/png;base64,{{ image_data }}">
+    <br><br>
+    <button onclick="downloadImage()">Save Image</button>
+    <button onclick="printImage()">Print Image</button>
+    <button onclick="goBack()">Back</button>
+
+    <script>
+        function downloadImage() {
+            var image = document.getElementById('transformed-image').src;
+            var link = document.createElement('a');
+            link.href = image;
+            link.download = 'TransformedImage.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function printImage() {
+            var image = document.getElementById('transformed-image');
+            var newWindow = window.open('');
+            newWindow.document.write(image.outerHTML);
+            newWindow.print();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

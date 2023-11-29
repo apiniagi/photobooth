@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Painting Gallery</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+       body {
+ 
+            background-image: url('{{ url_for('static', filename='royal-wallpaper.png') }}');
+            background-repeat: repeat;
+        }
+       
+    </style>
+</head>
+<body>
+    <h2>Welcome to the Virtual Painting Gallery</h2>
+    <form action="/capture" method="post">
+        <label for="prompt">Enter Your Prompt:</label><br>
+        <input type="text" id="prompt" name="prompt"><br>
+        
+        <label for="painter">Select Painter Style:</label><br>
+        <select name="painter">
+            <option value="Van Gogh">Van Gogh - Post-Impressionist</option>
+            <option value="Picasso">Picasso - Cubist</option>
+            <option value="Da Vinci">Da Vinci - Renaissance</option>
+            <option value="Monet">Monet - Impressionist</option>
+            <option value="Rembrandt">Rembrandt - Dutch Golden Age</option>
+            <option value="Dali">Dali - Surrealism</option>
+            <option value="Munch">Munch - Expressionism</option>
+            <option value="Klimt">Klimt - Symbolism</option>
+            <option value="Pollock">Pollock - Abstract Expressionism</option>
+            <option value="Warhol">Warhol - Pop Art</option>
+            <option value="Hokusai">Hokusai - Ukiyo-e</option>
+            <option value="Cezanne">Cezanne - Post-Impressionism</option>
+            <option value="Gauguin">Gauguin - Post-Impressionism</option>
+            <option value="Raphael">Raphael - High Renaissance</option>
+            <option value="Michelangelo">Michelangelo - High Renaissance</option>
+            <option value="Caravaggio">Caravaggio - Baroque</option>
+            <option value="Turner">Turner - Romanticism</option>
+            <option value="Bosch">Bosch - Northern Renaissance</option>
+            <option value="Kandinsky">Kandinsky - Abstract Art</option>
+            <option value="Rothko">Rothko - Abstract Expressionism</option>
+            <option value="Vermeer">Vermeer - Dutch Golden Age</option>
+            <option value="El Greco">El Greco - Mannerism</option>
+            <option value="Matisse">Matisse - Modernism</option>
+            <option value="Renoir">Renoir - Impressionism</option>
+            <option value="Manet">Manet - Modernism</option>
+            <!-- More options can be added here -->
+        </select><br><br>
+
+        <input type="submit" value="Capture and Transform Image">
+    </form>
+</body>
+</html>
+
