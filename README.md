@@ -1,4 +1,3 @@
-# TL;DR:
  * Install https://github.com/AUTOMATIC1111/stable-diffusion-webui on the machine with the beefcake GPU (backend)
    * add --listen and --api commandline args
  * Put photobooth.py, folders "static" and "templates" on the frontend machine (can be same as backend)
