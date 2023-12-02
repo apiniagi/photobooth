@@ -4,13 +4,52 @@
     <title>Virtual Painting Gallery</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <style>
-       body {
- 
+        body {
             background-image: url('{{ url_for('static', filename='royal-wallpaper.png') }}');
             background-repeat: repeat;
         }
-       
+        /* Additional styles can be added here */
     </style>
+    <script>
+        // Define the art styles and associated painters
+        var artStyles = {
+            "Post-Impressionism": ["Vincent van Gogh", "Paul Cézanne", "Georges Seurat"],
+            "Cubism": ["Pablo Picasso", "Georges Braque"],
+            "High Renaissance": ["Leonardo Da Vinci", "Raphael", "Michelangelo"],
+            "Impressionism": ["Claude Monet", "Edgar Degas", "Pierre-Auguste Renoir"],
+            "Surrealism": ["Salvador Dali", "Frida Kahlo", "René Magritte"],
+            "Expressionism": ["Edvard Munch", "Egon Schiele"],
+            "Symbolism": ["Gustav Klimt", "Odilon Redon"],
+            "Abstract Expressionism": ["Jackson Pollock", "Willem de Kooning"],
+            "Pop Art": ["Andy Warhol", "Roy Lichtenstein"],
+            "Ukiyo-e": ["Hokusai", "Hiroshige"],
+            "Northern Renaissance": ["Hieronymus Bosch", "Jan van Eyck", "Albrecht Dürer"],
+            "American Regionalism": ["Grant Wood", "Thomas Hart Benton"],
+            "Romanticism": ["J.M.W. Turner", "Francisco Goya"],
+            "Baroque": ["Caravaggio", "Peter Paul Rubens", "Diego Velázquez"],
+            "Modernism": ["Henri Matisse", "Édouard Manet", "Henri de Toulouse-Lautrec"],
+            // ... other styles and painters ...
+        };
+
+        function updatePainters() {
+            var styleSelect = document.getElementById("style");
+            var painterSelect = document.getElementById("painter");
+            var selectedStyle = styleSelect.value;
+
+            // Clear current options in painter dropdown
+            painterSelect.innerHTML = "";
+
+            // Add new options based on selected style
+            if (selectedStyle in artStyles) {
+                artStyles[selectedStyle].forEach(function(painter) {
+                    var opt = document.createElement('option');
+                    opt.value = painter;
+                    opt.innerHTML = painter;
+                    painterSelect.appendChild(opt);
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <h2>Welcome to the Virtual Painting Gallery</h2>
@@ -18,38 +57,37 @@
         <label for="prompt">Enter Your Prompt:</label><br>
         <input type="text" id="prompt" name="prompt"><br>
         
-        <label for="painter">Select Painter Style:</label><br>
-        <select name="painter">
-            <option value="Van Gogh">Van Gogh - Post-Impressionist</option>
-            <option value="Picasso">Picasso - Cubist</option>
-            <option value="Da Vinci">Da Vinci - Renaissance</option>
-            <option value="Monet">Monet - Impressionist</option>
-            <option value="Rembrandt">Rembrandt - Dutch Golden Age</option>
-            <option value="Dali">Dali - Surrealism</option>
-            <option value="Munch">Munch - Expressionism</option>
-            <option value="Klimt">Klimt - Symbolism</option>
-            <option value="Pollock">Pollock - Abstract Expressionism</option>
-            <option value="Warhol">Warhol - Pop Art</option>
-            <option value="Hokusai">Hokusai - Ukiyo-e</option>
-            <option value="Cezanne">Cezanne - Post-Impressionism</option>
-            <option value="Gauguin">Gauguin - Post-Impressionism</option>
-            <option value="Raphael">Raphael - High Renaissance</option>
-            <option value="Michelangelo">Michelangelo - High Renaissance</option>
-            <option value="Caravaggio">Caravaggio - Baroque</option>
-            <option value="Turner">Turner - Romanticism</option>
-            <option value="Bosch">Bosch - Northern Renaissance</option>
-            <option value="Kandinsky">Kandinsky - Abstract Art</option>
-            <option value="Rothko">Rothko - Abstract Expressionism</option>
-            <option value="Vermeer">Vermeer - Dutch Golden Age</option>
-            <option value="El Greco">El Greco - Mannerism</option>
-            <option value="Matisse">Matisse - Modernism</option>
-            <option value="Renoir">Renoir - Impressionism</option>
-            <option value="Manet">Manet - Modernism</option>
-            <!-- More options can be added here -->
+        <label for="style">Select Art Style:</label><br>
+        <select id="style" name="style" onchange="updatePainters()">
+            <option value="Post-Impressionism">Post-Impressionism</option>
+            <option value="Cubism">Cubism</option>
+            <option value="High Renaissance">High Renaissance</option>
+            <option value="Impressionism">Impressionism</option>
+            <option value="Surrealism">Surrealism</option>
+            <option value="Expressionism">Expressionism</option>
+            <option value="Symbolism">Symbolism</option>
+            <option value="Abstract Expressionism">Abstract Expressionism</option>
+            <option value="Pop Art">Pop Art</option>
+            <option value="Ukiyo-e">Ukiyo-e</option>
+            <option value="Northern Renaissance">Northern Renaissance</option>
+            <option value="American Regionalism">American Regionalism</option>
+            <option value="Romanticism">Romanticism</option>
+            <option value="Baroque">Baroque</option>
+            <option value="Modernism">Modernism</option>
+            <!-- Additional styles can be added here -->
+        </select><br><br>
+
+        <label for="painter">Select Painter:</label><br>
+        <select id="painter" name="painter">
+            <!-- Painters will be populated based on the style selection -->
         </select><br><br>
 
         <input type="submit" value="Capture and Transform Image">
     </form>
+
+    <script>
+        // Initialize painter dropdown based on default style selection
+        updatePainters();
+    </script>
 </body>
 </html>
-

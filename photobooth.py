@@ -13,37 +13,7 @@ app = Flask(__name__)
 
 #########   User Configurable Settings #################
 
-# Define painter styles
-painter_styles = {
-    "Van Gogh": "post-impressionist",
-    "Picasso": "cubist",
-    "Da Vinci": "Renaissance",
-    "Monet": "impressionist",
-    "Rembrandt": "Dutch Golden Age",
-    "Dali": "surrealism",
-    "Munch": "expressionism",
-    "Klimt": "symbolism",
-    "Pollock": "abstract expressionism",
-    "Warhol": "pop art",
-    "Hokusai": "ukiyo-e",
-    "Cezanne": "post-impressionism",
-    "Gauguin": "post-impressionism",
-    "Raphael": "High Renaissance",
-    "Michelangelo": "High Renaissance",
-    "Caravaggio": "Baroque",
-    "Turner": "romanticism",
-    "Bosch": "Northern Renaissance",
-    "Kandinsky": "abstract art",
-    "Rothko": "abstract expressionism",
-    "Vermeer": "Dutch Golden Age",
-    "El Greco": "mannerism",
-    "Matisse": "modernism",
-    "Renoir": "impressionism",
-    "Manet": "modernism",
-    # Add more painters and styles as needed
-}
-
-stdip = 'http://127.0.0.1:7860'  # Default running on localhost
+stdip = 'http://192.168.1.115:7860' # Default running on localhost
 image_output_path = None  # Output directory for before/after images
 img_height = 512  # Image height for SD output
 img_width = 512 # Image width for SD output
@@ -108,9 +78,9 @@ def capture_and_transform():
     try:
         user_prompt = request.form['prompt']
         selected_painter = request.form['painter']
-        style_prompt = painter_styles.get(selected_painter, "")
+        selected_painter = request.form['painter']
 
-        full_prompt = f"{user_prompt}, inspired by {style_prompt} style of {selected_painter}"
+        full_prompt = f"{user_prompt}, inspired by the style of {selected_painter}"
 
         image = capture_single_image()
         transformed_image = get_sd_image(image, full_prompt)
