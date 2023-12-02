@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <style>
         body {
-            background-image: url('{{ url_for('static', filename='royal-wallpaper.png') }}');
+            background-image: url('{{ url_for('static', filename='wallpaper.png') }}');
             background-repeat: repeat;
         }
         /* Additional styles can be added here */
@@ -52,7 +52,7 @@
     </script>
 </head>
 <body>
-    <h2>Welcome to the Virtual Painting Gallery</h2>
+    <h2 class="welcome-sign">Welcome to the Virtual Painting Gallery</h2>
     <form action="/capture" method="post">
         <label for="prompt">Enter Your Prompt:</label><br>
         <input type="text" id="prompt" name="prompt"><br>

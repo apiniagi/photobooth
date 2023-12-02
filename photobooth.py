@@ -19,7 +19,7 @@ img_height = 512  # Image height for SD output
 img_width = 512 # Image width for SD output
 
 # Stable Diffusion key settings
-sd_denoising_strength = 0.6
+sd_denoising_strength = 0.639
 sd_num_steps = 100
 sd_cfg_scale = 7
 #########   End User Configurable Settings #################
