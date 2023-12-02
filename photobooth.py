@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 #########   User Configurable Settings #################
 
-stdip = 'http://192.168.1.115:7860' # Default running on localhost
+stdip = 'http://127.0.0.1:7860' # Default running on localhost
 image_output_path = None  # Output directory for before/after images
 img_height = 512  # Image height for SD output
 img_width = 512 # Image width for SD output
