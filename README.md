@@ -52,7 +52,7 @@ For now, all configuration options are just hardcoded at the top of the script; 
 
 # Customization
 Styling: Modify style.css to change the application's appearance.<br /> 
-Painter Styles: Edit photobooth.py to add or modify the painter styles.<br /> 
+Painter Styles: Edit index.html to add or modify the painter styles.<br /> 
 
 # Troubleshooting
 Webcam Access: Ensure your browser has permission to access the webcam.<br /> 
