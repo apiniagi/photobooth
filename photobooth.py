@@ -1,19 +1,17 @@
 # Import necessary libraries
 from flask import Flask, request, render_template, send_file
 import cv2
-import io
 import json
 import base64
 import requests
 import numpy as np
-import time
 
 # Flask app setup
 app = Flask(__name__)
 
 #########   User Configurable Settings #################
 
-stdip = 'http://127.0.0.1:7860' # Default running on localhost
+stdip = 'http://192.168.1.115:7860' # Default running on localhost
 image_output_path = None  # Output directory for before/after images
 img_height = 512  # Image height for SD output
 img_width = 512 # Image width for SD output
@@ -78,8 +76,7 @@ def capture_and_transform():
     try:
         user_prompt = request.form['prompt']
         selected_painter = request.form['painter']
-        selected_painter = request.form['painter']
-
+        
         full_prompt = f"{user_prompt}, inspired by the style of {selected_painter}"
 
         image = capture_single_image()
